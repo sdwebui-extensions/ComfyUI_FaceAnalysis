@@ -26,6 +26,9 @@ from PIL import Image, ImageDraw, ImageFont, ImageColor
 
 DLIB_DIR = os.path.join(os.path.dirname(os.path.realpath(__file__)), "dlib")
 INSIGHTFACE_DIR = os.path.join(folder_paths.models_dir, "insightface")
+if os.path.exists(folder_paths.cache_dir):
+    INSIGHTFACE_DIR = "/stable-diffusion-cache/models/annotator/insightface"
+    DLIB_DIR = "/stable-diffusion-cache/models/dlib"
 
 THRESHOLDS = { # from DeepFace
         "VGG-Face": {"cosine": 0.68, "euclidean": 1.17, "L2_norm": 1.17},
